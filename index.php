@@ -69,7 +69,7 @@ else
 {
 ?>
 <script type="text/javascript">
-alert($result);
+alert('User already registered. Please try again');
 </script>
 <?php
 }
