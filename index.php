@@ -51,8 +51,8 @@ $year             = mysqli_real_escape_string($con,$_POST['year']);
 $patientDOB       = $year . "-" . $month . "-" . $day;
 $patientGender = mysqli_real_escape_string($con,$_POST['patientGender']);
 //INSERT
-$query = " INSERT INTO patient (  icPatient, password, patientFirstName, patientLastName,  patientDOB, patientGender,   patientEmail )
-VALUES ( '$icPatient', '$password', '$patientFirstName', '$patientLastName', '$patientDOB', '$patientGender', '$patientEmail' ) ";
+$query = " INSERT INTO patient (  icPatient, password, patientFirstName, patientLastName,  patientDOB, patientGender,patientAddress, patientPhone,patientEmail )
+VALUES ( '$icPatient', '$password', '$patientFirstName', '$patientLastName', '$patientDOB', '$patientGender',' ',' ', '$patientEmail' ) ";
 $result = mysqli_query($con, $query);
 // echo $result;
 if( $result )
