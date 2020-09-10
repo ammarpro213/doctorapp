@@ -3,7 +3,6 @@ include_once 'assets/conn/dbconnect.php';
 // include_once 'assets/conn/server.php';
 ?>
 
-
 <!-- login -->
 <!-- check session -->
 <?php
@@ -49,10 +48,13 @@ $month            = mysqli_real_escape_string($con,$_POST['month']);
 $day              = mysqli_real_escape_string($con,$_POST['day']);
 $year             = mysqli_real_escape_string($con,$_POST['year']);
 $patientDOB       = $year . "-" . $month . "-" . $day;
+$patientAddress=mysqli_real_escape_string($con,$_POST['patientAddress']);
+$patientPhone=mysqli_real_escape_string($con,$_POST['patientPhone']);
+
 $patientGender = mysqli_real_escape_string($con,$_POST['patientGender']);
 //INSERT
-$query = " INSERT INTO patient (  icPatient, password, patientFirstName, patientLastName,  patientDOB, patientGender,patientAddress, patientPhone,patientEmail )
-VALUES ( '$icPatient', '$password', '$patientFirstName', '$patientLastName', '$patientDOB', '$patientGender',' ',' ', '$patientEmail' ) ";
+$query = " INSERT INTO patient (  icPatient, password, patientFirstName, patientLastName,  patientDOB, patientGender,patientAddress,patientPhone,patientEmail )
+VALUES ( '$icPatient', '$password', '$patientFirstName', '$patientLastName', '$patientDOB', '$patientGender','$patientAddress','$patientPhone', '$patientEmail' ) ";
 $result = mysqli_query($con, $query);
 // echo $result;
 if( $result )
@@ -67,7 +69,7 @@ else
 {
 ?>
 <script type="text/javascript">
-alert('User already registered. Please try again');
+alert($result);
 </script>
 <?php
 }
@@ -183,6 +185,9 @@ alert('User already registered. Please try again');
                                         </div>
                                         
                                         <input type="text" name="patientEmail" value="" class="form-control input-lg" placeholder="Your Email"  required/>
+                                        <input type="text" name="patientAddress" value="" class="form-control input-lg" placeholder="Address"  required/>
+                                        <input type="text" name="patientPhone" value="" class="form-control input-lg" placeholder="Phone"  required/>
+                                        
                                         <input type="number" name="icPatient" value="" class="form-control input-lg" placeholder="Your IC Number"  required/>
                                         
                                         
