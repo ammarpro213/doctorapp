@@ -45,8 +45,11 @@
 //   }
 ?>
 <?php
-
-$con = mysqli_connect('den1.mysql4.gear.host','doctordb','Nt3Jo!s7lI!W');
+ $dbhost = "den1.mysql4.gear.host";
+ $dbuser = "doctordb";
+ $dbpass = "Nt3Jo!s7lI!W";
+ $db = "doctordb";
+$con = mysqli_connect($dbhost,$dbuser,$dbpass,$db);
 
 // Check connection
 if (mysqli_connect_errno())
